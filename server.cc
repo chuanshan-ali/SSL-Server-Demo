@@ -59,12 +59,12 @@ SSL_CTX *create_ssl_ctx()
 void configure_context(SSL_CTX *ctx)
 {
     SSL_CTX_set_ecdh_auto(ctx, 1);
-    if (SSL_CTX_use_certificate_file(ctx, "ca/cacert.pem", SSL_FILETYPE_PEM) <= 0)
+    if (SSL_CTX_use_certificate_file(ctx, "cert.pem", SSL_FILETYPE_PEM) <= 0)
     {
         ERR_print_errors_fp(stderr);
         exit(-1);
     }
-    if (SSL_CTX_use_PrivateKey_file(ctx, "ca/privkey.pem", SSL_FILETYPE_PEM) <= 0)
+    if (SSL_CTX_use_PrivateKey_file(ctx, "private_key.pem", SSL_FILETYPE_PEM) <= 0)
     {
         ERR_print_errors_fp(stderr);
         exit(-1);
